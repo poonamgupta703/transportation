@@ -1,0 +1,107 @@
+<div class="container" style="background-color:lightgrey;height:850px;">
+  <div class="col-md-2"></div>
+  <div class="col-md-8 container">
+    <h2 class="text-center">Fuel Entry</h2>
+    <form>
+      <div class="form-group col-md-8"></div>
+      <div class="form-group col-md-4">
+        <label class="form-group" for="plant">Plant:&nbsp; &nbsp;</label>
+        <select [(ngModel)]="fuelDto.plant" class="form-control">
+          <option value="">----select----</option>
+          <option value="JSW">JSW</option>
+          <option value="Whitefield">Whitefield</option>
+          <option value="Tumkur">Tumkur</option>
+          <option value="Housur">Housur</option>
+        </select><br><br>
+      </div>
+      <div class="form-group col-md-3">
+        <label for="vehicleNo">Vehicle No: </label>
+        <input type="number" required autofocus [(ngModel)]="fuelDto.vehicleNo" placeholder="Vehicle Number"
+          class="form-control" id="vehicleNo" name="vehicleNo">
+      </div>
+      <div class="form-group col-md-3">
+        <label for="driver">Driver:</label>
+        <input type="Text" required autofocus [(ngModel)]="fuelDto.driver" placeholder="Driver No."
+          class="form-control" id="driver" name="driver">
+      </div>
+      <div class="form-group col-md-3">
+        <label for="make">Make:</label>
+        <input type="text" required autofocus [(ngModel)]="fuelDto.make" placeholder="Make"  class="form-control" id="make" name="make">
+      </div>
+      <div class="form-group col-md-3">
+        <label for="model">Model:</label>
+        <select [(ngModel)]="fuelDto.model" class="form-control select-lg">
+          <option [ngValue]="duration">----select----</option>
+          <option [ngValue]="duration"> Tata </option>
+          <option [ngValue]="Tata"> Eicher </option>
+          <option [ngValue]="Tata">Mercedes</option>
+          <option [ngValue]="Tata">Ashok Leyland</option>
+        </select>
+      </div>
+      <div class="col-md-12"><b>
+          <hr></b></div>
+      <div class="form-group col-md-2"></div>
+      <div class="form-group col-md-8">
+        <div class="form-group col-md-3"></div>
+        <div class="form-group col-md-9"><label for="">Fuel Category:</label> <input required
+            autofocus placeholder="Opening Km" class="form-control" id="openingKm"><br></div>
+        <br>
+      </div>
+      <div class="form-group col-md-2"><br><br><br></div>
+
+      <table style="background-color: gainsboro;width:750px;"><br>
+        <div class="form-group col-md-4">Date: &nbsp; <input [(ngModel)]="fuelDto.date" type="date" id="date"></div>
+        <div class="form-group col-md-8"><br></div>
+        <tr>
+          <div class="form-group col-md-5">
+            <label for="vehicleId">Opening Km</label>
+            <input type="text" [(ngModel)]="fuelDto.openingKm" placeholder="Plant" class="form-control" id="plant"
+              required autofocus>
+          </div>
+          <div class="form-group col-md-2"></div>
+          <div class="form-group col-md-5">
+            <label for="closingKm">Closing Km</label>
+            <input type="text" [(ngModel)]="fuelDto.closingKm" placeholder="Plant" class="form-control" id="plant"
+              required autofocus>
+          </div>
+        </tr>
+        <tr>
+          <div class="col-md-5">
+            <label for="fuelLtr">Fuel(in litres)</label>
+            <input type="text" [(ngModel)]="fuelDto.fuelLtr" placeholder="Fuel" class="form-control" id="plant"
+              required autofocus>
+          </div>
+          <div class="col-md-2"></div>
+          <div class="form-group col-md-5">
+            <label for="fuelAmmount">Cast of fuel</label>
+            <input type="text" [(ngModel)]="fuelDto.fuelAmmount" placeholder="Plant" class="form-control" id="plant"
+              required autofocus>
+          </div>
+        </tr>
+
+        <div class="form-group col-md-4"></div>
+        <div class="form-group col-md-4">
+          <label for="efficiency">Efficiency(Km/litres):</label>
+          <input [(ngModel)]="fuelDto.efficiency" required autofocus placeholder="Efficiency" class="form-control">
+        </div>
+        <div class="form-group col-md-4">
+        </div>
+      </table>
+      <div class="form-group col-md-12"><br>
+        <div class="form-group col-md-4"></div>
+        <div class="form-group col-md-3"><br />
+          <button class="btn btn-default pull-right" (click)="createfuel(fuelDto)">Save & Exit</button>
+        </div>
+        <div class="form-group col-md-3"><br />
+          <button class="btn btn-default pull-right" (click)="createfuel(fuelDto)">Save And Next</button>
+        </div>
+        <div class="form-group col-md-2"><br />
+          <button class="btn btn-default pull-right" (click)="createfuel(fuelDto)">Reset</button>
+        </div><br>
+
+      </div>
+
+    </form>
+
+  </div>
+</div>

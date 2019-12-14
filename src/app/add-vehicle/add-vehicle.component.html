@@ -1,0 +1,44 @@
+<div class="col-md-2"></div>
+<div class="col-md-8">
+  <h2 class="text-center">{{message}}</h2>
+  <form class="table-strip" style="border: 1">
+   <!--  <div class="form-group" class="col-md-6">
+     <label for="vehicleId">Vehicle Id:</label>
+      <input type="text" [(ngModel)]="vehicle.vehicleId" placeholder="Vehicle Id" name="vehicleId" class="form-control"
+        id="vehicleId" required autofocus>
+    </div>-->
+    <div class="form-group" class="col-md-6">
+      <label for="vehicleNo">Vehicle Number: </label>
+      <input type="text" required autofocus [(ngModel)]="vehicle.vehicleNo" placeholder="Vehicle Number" name="vehicleNo" class="form-control" id="vehicleNo">
+    </div>
+    <div class="form-group" class="col-md-6">
+      <label for="assinplant">Assigned Plant:</label>
+      <input type="text" required autofocus [(ngModel)]="vehicle.assinplant" placeholder="Assigned Plant" name="assinplant" class="form-control"
+        id="assinplant">
+    </div>
+    <div class="form-group" class="col-md-6">
+      <label for="vMake">Vehicle Make:</label>
+      <input type="text" [(ngModel)]="vehicle.vMake" required autofocus placeholder="Vehicle Make" name="vMake" class="form-control"
+        id="vMake">
+    </div>
+    <div class="form-group" class="col-md-6">
+      <label for="vModel">Vehicle Model:</label>
+      <input [(ngModel)]="vehicle.vModel" required autofocus placeholder="Vehicle Model" name="vModel" class="form-control"
+        id="vModel">
+    </div>
+    <div class="form-group" class="col-md-6">
+      <label for="manfDate">Manufacture Year:</label>
+      <input type="date" required autofocus [(ngModel)]="vehicle.manfDate" placeholder="Manufacture Date" name="manfDate" class="form-control"
+        id="manfDate">
+    </div>
+  
+    <div class="form-group col-md-12"><br/>
+        <button class="btn btn-success pull-right" (click)="createVehicle(vehicle)">{{btnMsg}}</button>
+    </div>       
+    
+           
+  </form>
+  
+</div>
+
+<div class="col-md-2"></div>
