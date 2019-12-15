@@ -1,0 +1,43 @@
+
+<cdk-virtual-scroll-viewport itemSize="50" class="example-viewport">
+  <div #TABLE>
+    <div fxLayout fxLayoutAlign="center center">
+      <mat-form-field fxFlex="40%">
+        <input matInput type="text" (keyup)="doFilter($event.target.value)" placeholder="Filter">
+      </mat-form-field>
+    </div>
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8" #table>
+      <ng-container matColumnDef="plant">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Plant </th>
+        <td mat-cell *matCellDef="let fuelDto"> {{fuelDto.plant}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="vehicleNo">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Vehicle No </th>
+        <td mat-cell *matCellDef="let fuelDto"> <a href="#">{{fuelDto.vehicleNo}} </a></td>
+      </ng-container>
+    
+      <ng-container matColumnDef="closingKm">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Total Kms </th>
+        <td mat-cell *matCellDef="let fuelDto"> {{fuelDto.closingKm}} </td>
+      </ng-container>
+                         
+      <ng-container matColumnDef="openingKm">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Total Fuel(in Ltrs) </th>
+        <td mat-cell *matCellDef="let fuelDto"> {{fuelDto.openingKm}} </td>
+      </ng-container>
+      <ng-container matColumnDef="fuelAmmount">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Total Fuel Cost </th>
+        <td mat-cell *matCellDef="let fuelDto"> {{fuelDto.fuelAmmount}} </td>
+      </ng-container>
+      <ng-container matColumnDef="efficiency">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Average KMPL</th>
+        <td mat-cell *matCellDef="let fuelDto"> {{fuelDto.efficiency}} </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5,10,15,20,50]" showFirstLastButtons></mat-paginator>
+    <button mat-raised-button color="accent" (click)="exportAsExcel()">Export Excel</button>
+  </div>
+</cdk-virtual-scroll-viewport>

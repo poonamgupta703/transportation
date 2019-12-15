@@ -15,10 +15,15 @@ export class FuelEntryComponent implements OnInit {
 
   ngOnInit() {
   }
+  onChangeVehicleNo(vehileNo:String){
+    this.service.onChangeVehicleNo(vehileNo).subscribe(data=>{
+      console.log(data);
+    })
+  }
 
  public createfuel(fuelDto)
   {
-    this.service.createFuel(this.fuelDto).subscribe( data=>{
+    this.service.createFuel(fuelDto).subscribe( data=>{
       console.log(data);
       if(data==1){
         alert("Inserted success");

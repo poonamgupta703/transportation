@@ -16,7 +16,7 @@
       </div>
       <div class="form-group col-md-3">
         <label for="vehicleNo">Vehicle No: </label>
-        <input type="number" required autofocus [(ngModel)]="fuelDto.vehicleNo" placeholder="Vehicle Number"
+        <input type="text" (change)="onChangeVehicleNo(fuelDto.vehicleNo)" required autofocus [(ngModel)]="fuelDto.vehicleNo" placeholder="Vehicle Number"
           class="form-control" id="vehicleNo" name="vehicleNo">
       </div>
       <div class="form-group col-md-3">
