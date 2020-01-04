@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { DriverServiceService } from './driver-service.service';
+import { SharedServiceService } from './shared-service.service';
 
-describe('DriverServiceService', () => {
+describe('SharedServiceService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: DriverServiceService = TestBed.get(DriverServiceService);
+    const service: SharedServiceService = TestBed.get(SharedServiceService);
     expect(service).toBeTruthy();
   });
 });

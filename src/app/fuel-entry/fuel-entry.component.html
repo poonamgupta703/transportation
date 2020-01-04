@@ -1,88 +1,76 @@
-<div class="container" style="background-color:lightgrey;height:850px;">
+<div class="container-fluid" style="background-color:lightgrey;height:750px; width: 80%;">
   <div class="col-md-2"></div>
   <div class="col-md-8 container">
-    <h2 class="text-center">Fuel Entry</h2>
-    <form>
+    <h2 class="text-center">Fuel Entry</h2><hr> 
+    <form #myForm="ngForm">
       <div class="form-group col-md-8"></div>
       <div class="form-group col-md-4">
-        <label class="form-group" for="plant">Plant:&nbsp; &nbsp;</label>
-        <select [(ngModel)]="fuelDto.plant" class="form-control">
-          <option value="">----select----</option>
-          <option value="JSW">JSW</option>
-          <option value="Whitefield">Whitefield</option>
-          <option value="Tumkur">Tumkur</option>
-          <option value="Housur">Housur</option>
-        </select><br><br>
+        <label class="form-group" for="plant">Plant: &nbsp; &nbsp;</label>
+        <input type="text" [(ngModel)]="fuelDto.plant" [ngModelOptions]="{standalone: true}" class="form-control">
+         <br><br>
       </div>
       <div class="form-group col-md-3">
         <label for="vehicleNo">Vehicle No: </label>
-        <input type="text" (change)="onChangeVehicleNo(fuelDto.vehicleNo)" required autofocus [(ngModel)]="fuelDto.vehicleNo" placeholder="Vehicle Number"
-          class="form-control" id="vehicleNo" name="vehicleNo">
+        <input type="text" maxlength="10" [ngModelOptions]="{standalone: true}" value="{{fuelDto.vehicleNo}}" (change)="onChangeVehicleNo($event.target.value)" required  [(ngModel)]="fuelDto.vehicleNo" placeholder="Vehicle Number"
+          class="form-control">
       </div>
       <div class="form-group col-md-3">
         <label for="driver">Driver:</label>
-        <input type="Text" required autofocus [(ngModel)]="fuelDto.driver" placeholder="Driver No."
-          class="form-control" id="driver" name="driver">
+        <input type="Text" required  [(ngModel)]="fuelDto.driver"  [ngModelOptions]="{standalone: true}" value="{{fuelDto.driver}}" placeholder="Driver No."
+          class="form-control">
       </div>
       <div class="form-group col-md-3">
         <label for="make">Make:</label>
-        <input type="text" required autofocus [(ngModel)]="fuelDto.make" placeholder="Make"  class="form-control" id="make" name="make">
+        <input type="text" value="{{fuelDto.make}}" required  [(ngModel)]="fuelDto.make" [ngModelOptions]="{standalone: true}" placeholder="Make"  class="form-control">
+      
       </div>
       <div class="form-group col-md-3">
         <label for="model">Model:</label>
-        <select [(ngModel)]="fuelDto.model" class="form-control select-lg">
-          <option [ngValue]="duration">----select----</option>
-          <option [ngValue]="duration"> Tata </option>
-          <option [ngValue]="Tata"> Eicher </option>
-          <option [ngValue]="Tata">Mercedes</option>
-          <option [ngValue]="Tata">Ashok Leyland</option>
-        </select>
+        <input type="text" [(ngModel)]="fuelDto.model" [ngModelOptions]="{standalone: true}" class="form-control select-lg">
       </div>
       <div class="col-md-12"><b>
           <hr></b></div>
       <div class="form-group col-md-2"></div>
       <div class="form-group col-md-8">
         <div class="form-group col-md-3"></div>
-        <div class="form-group col-md-9"><label for="">Fuel Category:</label> <input required
-            autofocus placeholder="Opening Km" class="form-control" id="openingKm"><br></div>
+        <div class="form-group col-md-9"><label for="">Fuel Category: </label> <!-- <input required
+             placeholder="Opening Km" class="form-control"> --><br></div>
         <br>
       </div>
       <div class="form-group col-md-2"><br><br><br></div>
 
-      <table style="background-color: gainsboro;width:750px;"><br>
-        <div class="form-group col-md-4">Date: &nbsp; <input [(ngModel)]="fuelDto.date" type="date" id="date"></div>
+      <table style="background-color: gainsboro; width:750px;"><br>
+        <div class="form-group col-md-4">Date: &nbsp; <input [(ngModel)]="fuelDto.date" [ngModelOptions]="{standalone: true}" value="{{fuelDto.date}}" type="date"></div>
         <div class="form-group col-md-8"><br></div>
         <tr>
           <div class="form-group col-md-5">
             <label for="vehicleId">Opening Km</label>
-            <input type="text" [(ngModel)]="fuelDto.openingKm" placeholder="Plant" class="form-control" id="plant"
-              required autofocus>
+            <input type="text" [(ngModel)]="fuelDto.openingKm" value="{{fuelDto.openingKm}}" [ngModelOptions]="{standalone: true}" placeholder="Plant" class="form-control"  required >
           </div>
           <div class="form-group col-md-2"></div>
           <div class="form-group col-md-5">
             <label for="closingKm">Closing Km</label>
-            <input type="text" [(ngModel)]="fuelDto.closingKm" placeholder="Plant" class="form-control" id="plant"
-              required autofocus>
+            <input type="text" [(ngModel)]="fuelDto.closingKm" value="{{fuelDto.closingKm}}" placeholder="Plant"  [ngModelOptions]="{standalone: true}" class="form-control"
+              required >
           </div>
         </tr>
         <tr>
           <div class="col-md-5">
             <label for="fuelLtr">Fuel(in litres)</label>
-            <input type="text" [(ngModel)]="fuelDto.fuelLtr" placeholder="Fuel" class="form-control" id="plant"
-              required autofocus>
+            <input type="text" [(ngModel)]="fuelDto.fuelLtr" value="{{fuelDto.fuelLtr}}" [ngModelOptions]="{standalone: true}" placeholder="Fuel" class="form-control" required >
           </div>
           <div class="col-md-2"></div>
           <div class="form-group col-md-5">
             <label for="fuelAmmount">Cast of fuel</label>
-            <input type="text" [(ngModel)]="fuelDto.fuelAmmount" placeholder="Plant" class="form-control" id="plant"
-              required autofocus>
+            <input type="text" [(ngModel)]="fuelDto.fuelAmmount" value="{{fuelDto.fuelAmmount}}" [ngModelOptions]="{standalone: true}" placeholder="Plant" class="form-control"
+              required >
           </div>
         </tr>
 
         <div class="form-group col-md-4"></div>
         <div class="form-group col-md-4">
           <label for="efficiency">Efficiency(Km/litres):</label>
-          <input [(ngModel)]="fuelDto.efficiency" required autofocus placeholder="Efficiency" class="form-control">
+          <input [(ngModel)]="fuelDto.efficiency"  [ngModelOptions]="{standalone: true}" value="{{fuelDto.efficiency}}" required  placeholder="Efficiency" class="form-control">
         </div>
         <div class="form-group col-md-4">
         </div>
@@ -90,18 +78,19 @@
       <div class="form-group col-md-12"><br>
         <div class="form-group col-md-4"></div>
         <div class="form-group col-md-3"><br />
-          <button class="btn btn-default pull-right" (click)="createfuel(fuelDto)">Save & Exit</button>
+          <button class="btn btn-default pull-right" (click)="createFuel(fuelDto)">Save & Exit</button>
         </div>
         <div class="form-group col-md-3"><br />
-          <button class="btn btn-default pull-right" (click)="createfuel(fuelDto)">Save And Next</button>
+          <button class="btn btn-default pull-right" (click)="createAndNext(fuelDto)">Save And Next</button>
         </div>
         <div class="form-group col-md-2"><br />
-          <button class="btn btn-default pull-right" (click)="createfuel(fuelDto)">Reset</button>
+          <button class="btn btn-default pull-right" (click)="resetForm()">Reset</button>
         </div><br>
 
       </div>
-
-    </form>
+    </form> 
 
   </div>
 </div>
+<div style="height: 100px;"></div>
+<!-- <app-footer></app-footer> -->

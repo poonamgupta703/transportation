@@ -1,14 +1,14 @@
 /* Style the header with a grey background and some padding */
 .header {
   overflow: hidden;
-  background-color: #f1f1f1;
+  background-color:teal;
   padding: 20px 10px;
 }
 
 /* Style the header links */
 .header a {
   float: left;
-  color: black;
+  color:white;
   text-align: center;
   padding: 12px;
   text-decoration: none;
@@ -56,7 +56,7 @@
     align-items: stretch;
 }
 #sidebar {
-  min-width: 250px;
+  min-width: 50px;
   max-width: 250px;
   min-height: 100vh;
 }

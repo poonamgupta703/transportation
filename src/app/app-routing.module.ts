@@ -7,23 +7,31 @@ import { DriverDetailsComponent } from './driver-details/driver-details.componen
 import { AddDriverComponent } from './add-driver/add-driver.component';
 import { VehicleDetailsComponent } from './vehicle-details/vehicle-details.component';
 import { AdminComponent } from './admin/admin.component';
-import { AuthGuard } from './auth.guard';
 import { FuelEntryComponent } from './fuel-entry/fuel-entry.component';
 import { ConsolidatedViewComponent } from './consolidated-view/consolidated-view.component';
-
+import { AuthGaurdService } from './services/auth-gaurd.service';
+import { LogOutComponent } from './log-out/log-out.component';
+import { HomeComponent } from './home/home.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { InternalServerErrorComponent } from './internal-server-error/internal-server-error.component';
+import { UnautherizedUserComponent } from './unautherized-user/unautherized-user.component';
 
 const routes: Routes = [
-  {path:"",component:LoginComponent},
-  {path: "ResetPassword", component:ResetPasswordComponent},
-  {path: "Consolidated", component:ConsolidatedViewComponent},
-  {path: "AddVehicle", component:AddVehicleComponent},
-  {path: "FuelEntry", component:FuelEntryComponent},
-  {path: "VehicleDetails", component:VehicleDetailsComponent},
-  {path: "DriverDetails", component:DriverDetailsComponent},
-  {path: "AddDriver", component:AddDriverComponent},
-  { path: '', pathMatch: 'full', redirectTo: 'login'},
-  { path: 'login', component: LoginComponent },
-  { path: 'admin', component: AdminComponent, canActivate: [AuthGuard] }
+  { path: "", component: LoginComponent },
+  { path: "ResetPassword", component: ResetPasswordComponent,canActivate:[AuthGaurdService]},
+  { path: "Consolidated", component: ConsolidatedViewComponent,canActivate:[AuthGaurdService] },
+  { path: "AddVehicle", component: AddVehicleComponent ,canActivate:[AuthGaurdService]},
+  { path: "FuelEntry", component: FuelEntryComponent ,canActivate:[AuthGaurdService]},
+  { path: "VehicleDetails", component: VehicleDetailsComponent,canActivate:[AuthGaurdService] },
+  { path: "DriverDetails", component: DriverDetailsComponent ,canActivate:[AuthGaurdService]},
+  { path: "AddDriver", component: AddDriverComponent,canActivate:[AuthGaurdService] },
+  { path: 'admin', component: AdminComponent ,canActivate:[AuthGaurdService]},
+  { path: 'LogOut', component: LogOutComponent ,canActivate:[AuthGaurdService]},
+  { path: 'Home', component: HomeComponent ,canActivate:[AuthGaurdService]},
+  { path: 'PageNotfound', component: PageNotFoundComponent},
+  { path: 'InternalServerError', component: InternalServerErrorComponent},
+  { path: 'Unautherized', component: UnautherizedUserComponent},
+  { path: '**', redirectTo:""}
 ];
 
 @NgModule({

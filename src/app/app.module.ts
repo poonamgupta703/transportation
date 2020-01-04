@@ -10,8 +10,6 @@ import { VehicleDetailsComponent } from './vehicle-details/vehicle-details.compo
 import { AddVehicleComponent } from './add-vehicle/add-vehicle.component';
 import { AddDriverComponent } from './add-driver/add-driver.component';
 import { DriverDetailsComponent } from './driver-details/driver-details.component';
-import { VehicleServiceService } from './services/vehicle-service.service';
-import { DriverServiceService } from './services/driver-service.service';
 import { AdminComponent } from './admin/admin.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
@@ -26,8 +24,15 @@ import { ConsolidatedViewComponent } from './consolidated-view/consolidated-view
 import {MatTableModule} from '@angular/material/table';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-
+import { UserEntryComponent } from './user-entry/user-entry.component';
+import { LogOutComponent } from './log-out/log-out.component';
+import { HomeComponent } from './home/home.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { InternalServerErrorComponent } from './internal-server-error/internal-server-error.component';
+import { UnautherizedUserComponent } from './unautherized-user/unautherized-user.component';
+/* import {SocketIoConfig,SocketIoModule} from 'ng-socket-io';
+import * as myGlobals from './global'; */
+/* const config: SocketIoConfig={url: myGlobals.baseUrl, options:{}}; */
 
 @NgModule({
   declarations: [
@@ -42,13 +47,19 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HeaderComponent,
     FooterComponent,
     FuelEntryComponent,
-    ConsolidatedViewComponent
+    ConsolidatedViewComponent,
+    UserEntryComponent,
+    LogOutComponent,
+    HomeComponent,
+    PageNotFoundComponent,
+    InternalServerErrorComponent,
+    UnautherizedUserComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    AppRoutingModule,//SocketIoModule.forRoot(config),
     FormsModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule,ReactiveFormsModule.withConfig({warnOnNgModelWithFormControl: 'never'}),
     HttpClientModule,MaterialModule,
     CommonModule,
     FlexLayoutModule,
@@ -57,7 +68,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatButtonModule,
     ScrollingModule
   ],
-  providers: [VehicleServiceService,DriverServiceService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

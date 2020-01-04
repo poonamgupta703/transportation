@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Driver } from '../models/driver';
-import { DriverServiceService } from '../services/driver-service.service';
+import { SharedService } from '../services/shared-service.service';
 
 @Component({
   selector: 'app-driver-details',
@@ -10,36 +10,67 @@ import { DriverServiceService } from '../services/driver-service.service';
 })
 export class DriverDetailsComponent implements OnInit {
 
-  constructor(private driverService:DriverServiceService,private router: Router) { }
+  private baseUrl = 'http://localhost:8081/VehicleController/';
+  constructor(private driverService: SharedService, private router: Router) { }
   drivers: Driver[];
-
+  disableFlag = true;
+  
   ngOnInit() {
     this.getDrivers();
-  }
-    
-  public getDrivers()
-  {
-    this.driverService.getDriver()
-    .subscribe( data => {
-      this.drivers = data;
+     }
+
+  public getDrivers() {
+    this.driverService.get(this.baseUrl + "getDrivers").subscribe(result => {
+      if (result.status === 404) {
+        this.router.navigate(["PageNotfound"]);
+      } else if (result.status === 500) {
+        this.router.navigate(["InternalServerError"]);
+      } else if (result.status === 401 || result.status === 403) {
+        this.router.navigate(["Unautherized"]);
+      } else {
+        this.drivers = result;
+      }
     });
+    this.checkUserProfile();
   }
 
-  editDriver(driver: Driver)
-  {
+  checkUserProfile() {
+    let user = sessionStorage.getItem('username');
+    if (user == "U") {
+      this.disableFlag = false;
+    } else {
+      this.disableFlag = true;
+    }
+  }
+
+  editDriver(driver: Driver) {
     this.driverService.driverSetter(driver);
     this.router.navigate(["/AddDriver"]);
   }
-  addDriver(){
+
+  addDriver() {
+    this.driverService.resetSetter();
     this.router.navigate(["/AddDriver"]);
   }
-  deleteDriver(driver:Driver)
-  {
-    this.driverService.deleteDriver(driver.id).subscribe(data=>{
-        this.drivers = this.drivers.filter(u => u !== driver);         
-    })
+
+  deleteDriver(driver: Driver) {
+    console.log(driver);
+    this.driverService.get(this.baseUrl + "deleteDriver/" + driver.driverId).subscribe(result => {
+      if (result.status === 404) {
+        this.router.navigate(["PageNotfound"]);
+      } else if (result.status === 500) {
+        this.router.navigate(["InternalServerError"]);
+      } else if (result.status === 401 || result.status === 403) {
+        this.router.navigate(["Unautherized"]);
+      } else {
+       // this.drivers = this.drivers.filter(u => u !== driver);        
+      }
+        });
+    this.drivers = this.drivers.filter(u => u !== driver);        
   };
-  
+
+  onClickSearch(searchString: string) {
+    return this.drivers.filter(employee =>
+      employee.dName.toLowerCase().indexOf(searchString.toLowerCase()) !== -1);
+  }
 }
-
-

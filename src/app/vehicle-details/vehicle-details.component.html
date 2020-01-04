@@ -1,8 +1,7 @@
-<div class= "container-fluid">
- 
+<div class= "container-fluid"> 
 <div class="col-md-12">
     <h2> Vehicle Details</h2> 
-  <div class="pull-right"><b>Advance Search: &nbsp;</b><input type = "search" class= "pull-right" (change)="onSearch($event.target.value)"></div>     
+  <div class="pull-right"><b>Advance Search: &nbsp;</b><input type = "text" class= "pull-right" (input)="onSearch($event.target.value)"></div>     
     <table class="table table-striped">
       <thead>
       <tr>
@@ -11,8 +10,7 @@
         <th>Vehicle Make</th>      
         <th>Vehicle Model</th>
         <th>Manufacture Year</th>
-        <th>Action</th>
-            
+        <th *ngIf="disableFlag">Action</th>
       </tr>
     </thead>
       <tbody>
@@ -22,11 +20,12 @@
         <td>{{vehicle.vMake}}</td>    
         <td>{{vehicle.vModel}}</td>
         <td>{{vehicle.manfDate}}</td>
-         <td><button class="btn btn-danger" (click)="deleteVehicle(vehicle)">Delete</button>&nbsp;
-         <button class="btn btn-primary" (click)="editVehicle(vehicle)"> Edit</button></td>
+         <td *ngIf="disableFlag">
+           <button class="btn btn-danger" (click)="deleteVehicle(vehicle)">Delete</button>&nbsp;
+           <button class="btn btn-primary" (click)="editVehicle(vehicle)"> Edit</button></td>
         </tr>
       </tbody>
     </table>
-    <div><button class="btn btn-info col-md-2" (click)="addVehicle()"> Add Vehicle</button></div>
+    <div><button *ngIf="disableFlag" class="btn btn-info col-md-2" (click)="addVehicle()"> Add Vehicle</button></div>
     </div>
   </div>

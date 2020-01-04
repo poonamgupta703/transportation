@@ -5,7 +5,6 @@ import { MatPaginatorModule, MatSortModule } from '@angular/material';
 import { MatFormFieldModule, MatInputModule } from '@angular/material';
 //import { FlexLayoutModule } from '@angular/flex-layout';
 
-
 @NgModule({
   declarations: [],
   imports: [

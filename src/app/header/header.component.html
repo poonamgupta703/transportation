@@ -1,12 +1,13 @@
 <div class="header">
     <a href="#default" class="logo"><font color="blue">Balaji Transport</font></a>
     <div class="header-Center">
-      <a style="margin-left:10px" routerLink="/">Home</a>
-      <a style="margin-left:10px" routerLink="/DriverDetails">Driver Master</a>
-      <a style="margin-left:10px" routerLink="/VehicleDetails">Vehicle Master</a>
-      <a style="margin-left:10px" routerLink="/FuelEntry">Fuel Entry</a>
-      <a href="Consolidated">Fuel Master</a>
-      <div>
+      <a *ngIf="loginService.isUserLoggedIn()" style="margin-left:15px" routerLink="/Home">Home</a>
+      <a  *ngIf="loginService.isUserLoggedIn()" style="margin-left:15px" routerLink="/DriverDetails">Driver Master</a>
+      <a  *ngIf="loginService.isUserLoggedIn()" style="margin-left:15px" routerLink="/VehicleDetails">Vehicle Master</a>
+      <a  *ngIf="loginService.isUserLoggedIn()" style="margin-left:15px" routerLink="/FuelEntry">Fuel Entry</a>
+      <a  *ngIf="loginService.isUserLoggedIn()" style="margin-left:15px" routerLink="/Consolidated">Fuel Master</a>
+      
+    <!--   <div>
          
           <ul class="avtar header-right">
             <div class="avtar header-right">
@@ -20,9 +21,15 @@
            
              </ul>
          
-      </div>  
+      </div>   -->
         
   </div>
+  
+ <div class="pull-right">
+        <i class="fa fa-user-circle-o" style="font-size:20px"></i>
+        <i><a *ngIf="loginService.isUserLoggedIn()" style="margin-left:15px" routerLink="/LogOut">Logout</a></i>
+  </div> 
+ 
   </div>
        
   

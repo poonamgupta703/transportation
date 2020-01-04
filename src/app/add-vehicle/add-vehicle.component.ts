@@ -1,49 +1,50 @@
 import { Component, OnInit } from '@angular/core';
 import { Vehicle } from '../models/vehicle';
-import { VehicleServiceService } from '../services/vehicle-service.service';
 import { Router,ActivatedRoute } from '@angular/router';
-import { Alert } from 'selenium-webdriver';
+import { SharedService } from '../services/shared-service.service';
 
 @Component({
   selector: 'app-add-vehicle',
   templateUrl: './add-vehicle.component.html',
   styleUrls: ['./add-vehicle.component.css']
 })
+
 export class AddVehicleComponent implements OnInit {
-  constructor(private vehicleService:VehicleServiceService, private router:Router) { }
+  constructor(private vehicleService:SharedService, private router:Router) { }
   vehicle:Vehicle=new Vehicle();
   btnMsg:String;
   message:String;
+  private baseUrl = 'http://localhost:8081/VehicleController/';
+
   ngOnInit() {
      this.vehicle=this.vehicleService.vehicleGetter();  
     if(this.vehicle.vehicleId!=null && this.vehicle.vehicleId!=undefined){
       this.message="Edit Vehicle Details";
-      this.btnMsg="Edit";
+      this.btnMsg="Edit Record";
     }
     else{
       this.message="Add Vehicle Details";
-      this.btnMsg="Save";
+      this.btnMsg="Save Record";
     }
   }
-
-  editVehicle(vehicle:Vehicle)
-  {
-     this.vehicleService.editVehicle(vehicle).subscribe(data=>{
-       console.log(data);
-       alert("Vehicle Details Successfully Edited.");
-       
-     this.router.navigate(["/VehicleDetails"]);
-     });
-
-  }
-  addVehicle(vehicle:Vehicle)
-  {
-     this.vehicleService.creatVehicle(vehicle).subscribe(data=>{
-       console.log(data);
-       alert("Vehicle Details Successfully added.");
-       
-     this.router.navigate(["/VehicleDetails"]);
-     });
-    }
   
+  createVehicle(vehicle:Vehicle)
+  {
+      this.vehicleService.glpost(vehicle,this.baseUrl+"UpdateVehicle").subscribe(result=>{
+      if(result.status===404){
+        this.router.navigate(["PageNotfound"]);
+      }else if(result.status===500){
+        this.router.navigate(["InternalServerError"]);
+      }else if(result.status===401 || result.status===403){
+        this.router.navigate(["Unautherized"]);
+      }else{
+        if(this.btnMsg=="Save"){
+          alert("Vehicle Details created Successfully.");
+        }else{
+          alert("Vehicle Details edited Successfully.");
+        }
+         this.router.navigate(["/VehicleDetails"]);
+         }
+      });      
+  }  
 }

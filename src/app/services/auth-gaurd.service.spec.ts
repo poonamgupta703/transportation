@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { FuelServiceService } from './fuel-service.service';
+import { AuthGaurdService } from './auth-gaurd.service';
 
-describe('FuelServiceService', () => {
+describe('AuthGaurdService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: FuelServiceService = TestBed.get(FuelServiceService);
+    const service: AuthGaurdService = TestBed.get(AuthGaurdService);
     expect(service).toBeTruthy();
   });
 });

@@ -5,9 +5,7 @@ import * as XLSX from 'xlsx';
   providedIn: 'root'
 })
 export class ExcelServiceService {
-
   constructor() { }
-
   exportAsExcel(table: any) {
     const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(table.nativeElement);//converts a DOM TABLE element to a worksheet
     const wb: XLSX.WorkBook = XLSX.utils.book_new();

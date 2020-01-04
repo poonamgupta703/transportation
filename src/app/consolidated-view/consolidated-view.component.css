@@ -13,3 +13,7 @@ th.mat-sort-header-sorted {
 .example-item {
   height: 50px;
 }
+.container-fluid
+{
+  width: 95%;
+}
