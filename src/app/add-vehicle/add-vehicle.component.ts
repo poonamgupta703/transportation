@@ -38,7 +38,7 @@ export class AddVehicleComponent implements OnInit {
       }else if(result.status===401 || result.status===403){
         this.router.navigate(["Unautherized"]);
       }else{
-        if(this.btnMsg=="Save"){
+        if(this.btnMsg=="Save Record"){
           alert("Vehicle Details created Successfully.");
         }else{
           alert("Vehicle Details edited Successfully.");

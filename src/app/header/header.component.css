@@ -1,18 +1,19 @@
 /* Style the header with a grey background and some padding */
 .header {
   overflow: hidden;
-  background-color:teal;
+  background-color:rgb(190, 184, 185);
   padding: 20px 10px;
 }
 
 /* Style the header links */
 .header a {
   float: left;
-  color:white;
+  color:rgb(29, 28, 31);
   text-align: center;
   padding: 12px;
   text-decoration: none;
-  font-size: 18px;
+  font-size: 25px;
+  font-family: "Times New Roman", Times, serif;
   line-height: 25px;
   border-radius: 4px;
 }
@@ -25,7 +26,7 @@
 
 /* Change the background color on mouse-over */
 .header a:hover {
-  background-color: #ddd;
+  background-color: rgb(144, 125, 189);
   color: black;
 }
 

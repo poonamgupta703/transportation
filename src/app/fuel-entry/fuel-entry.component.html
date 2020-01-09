@@ -45,24 +45,24 @@
         <tr>
           <div class="form-group col-md-5">
             <label for="vehicleId">Opening Km</label>
-            <input type="text" [(ngModel)]="fuelDto.openingKm" value="{{fuelDto.openingKm}}" [ngModelOptions]="{standalone: true}" placeholder="Plant" class="form-control"  required >
+            <input type="text" [(ngModel)]="fuelDto.openingKm" value="{{fuelDto.openingKm}}" [ngModelOptions]="{standalone: true}" placeholder="Enter Opening Km" class="form-control"  required >
           </div>
           <div class="form-group col-md-2"></div>
           <div class="form-group col-md-5">
             <label for="closingKm">Closing Km</label>
-            <input type="text" [(ngModel)]="fuelDto.closingKm" value="{{fuelDto.closingKm}}" placeholder="Plant"  [ngModelOptions]="{standalone: true}" class="form-control"
+            <input type="text" [(ngModel)]="fuelDto.closingKm" value="{{fuelDto.closingKm}}" placeholder="Enter Closing Km"  [ngModelOptions]="{standalone: true}" class="form-control"
               required >
           </div>
         </tr>
         <tr>
           <div class="col-md-5">
             <label for="fuelLtr">Fuel(in litres)</label>
-            <input type="text" [(ngModel)]="fuelDto.fuelLtr" value="{{fuelDto.fuelLtr}}" [ngModelOptions]="{standalone: true}" placeholder="Fuel" class="form-control" required >
+            <input type="text" [(ngModel)]="fuelDto.fuelLtr" value="{{fuelDto.fuelLtr}}" [ngModelOptions]="{standalone: true}" placeholder="Enter Fuel(in litres)" class="form-control" required >
           </div>
           <div class="col-md-2"></div>
           <div class="form-group col-md-5">
-            <label for="fuelAmmount">Cast of fuel</label>
-            <input type="text" [(ngModel)]="fuelDto.fuelAmmount" value="{{fuelDto.fuelAmmount}}" [ngModelOptions]="{standalone: true}" placeholder="Plant" class="form-control"
+            <label for="fuelAmmount">Cost of fuel</label>
+            <input type="text" [(ngModel)]="fuelDto.fuelAmmount" value="{{fuelDto.fuelAmmount}}" [ngModelOptions]="{standalone: true}" placeholder="Enter Cost of fuel" class="form-control"
               required >
           </div>
         </tr>
@@ -70,7 +70,7 @@
         <div class="form-group col-md-4"></div>
         <div class="form-group col-md-4">
           <label for="efficiency">Efficiency(Km/litres):</label>
-          <input [(ngModel)]="fuelDto.efficiency"  [ngModelOptions]="{standalone: true}" value="{{fuelDto.efficiency}}" required  placeholder="Efficiency" class="form-control">
+          <input [(ngModel)]="fuelDto.efficiency"  [ngModelOptions]="{standalone: true}" value="{{fuelDto.efficiency}}" required  placeholder="Enter Efficiency(Km/litres)" class="form-control">
         </div>
         <div class="form-group col-md-4">
         </div>

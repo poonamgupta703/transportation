@@ -70,7 +70,12 @@ export class DriverDetailsComponent implements OnInit {
   };
 
   onClickSearch(searchString: string) {
-    return this.drivers.filter(employee =>
-      employee.dName.toLowerCase().indexOf(searchString.toLowerCase()) !== -1);
+      if(searchString!=null && searchString!=undefined && searchString!=""){
+        this.drivers= this.drivers.filter(singleItem =>
+          singleItem.dName.toLowerCase().includes(searchString.toLowerCase()));
+      }else{
+        this.getDrivers();
+      }
+         
   }
 }

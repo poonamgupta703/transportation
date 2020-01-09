@@ -55,7 +55,11 @@ export class AddDriverComponent implements OnInit {
         this.router.navigate(["Unautherized"]);
       } else {
         console.log("createdriver  " + result);
-        alert("driver created sucessfully");
+        if(this.btnMsg=="Save Record"){
+          alert("Driver details created sucessfully");      
+      }else{
+        alert("Driver details edited successfully.");
+      }
         this.router.navigate(["/DriverDetails"]);
       }
     });

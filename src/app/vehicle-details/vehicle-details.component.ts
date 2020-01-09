@@ -59,10 +59,19 @@ export class VehicleDetailsComponent implements OnInit {
     }
   }
 
-  onSearch(searchString: any) {
-    this.vehicles1 = null;   
-    return this.vehicles.filter(vehicle =>
-      vehicle.vehicleNo.toLowerCase().indexOf(searchString.toLowerCase()) != -1);  
+  onSearch(searchString: any) {        
+        if(searchString!=null && searchString!=undefined && searchString!=""){
+          this.vehicles= this.vehicles.filter(singleItem =>
+            singleItem.vehicleNo.toLowerCase().includes(searchString.toLowerCase()));            
+        }else{
+         this.getVehical();
+        } 
+       /*  if(searchString!=null && searchString!=undefined && searchString!=""){
+          this.vehicles= this.vehicles.filter(singleItem =>
+            singleItem.assinplant.toLowerCase().includes(searchString.toLowerCase()));
+        }else{
+          this.getVehical();
+         } */
   }
 
   editVehicle(vehicle: any) {

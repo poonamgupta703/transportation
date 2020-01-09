@@ -1,7 +1,14 @@
-<div class="col-md-2"></div>
-<div class="col-md-8">
-  <h2 class="text-center">{{message}}</h2>
-  <form>
+<div class="col-md-10">
+  <!-- Modal -->
+  <div class="modal-fade">
+  <div class="modal-dialog">
+  <!-- Modal content-->
+  <div class="row">
+  <div class="col-md-12 col-sm-12 col-lg-8 col-md-offset-1">
+    <div class="panel panel-primary body">
+    <div id="p1" class="panel-heading text-center" style="width:780px;">{{message}}</div>
+    <div class="panel-body">
+  <form class="form-validation border">
     <div class="form-group" class="col-md-6">
       <label for="dId">Driver Id:</label>
       <input type="text" [(ngModel)]="driver.dId" (input)="checkFormValidity()" placeholder="Driver Id" name="dId" class="form-control"
@@ -45,10 +52,17 @@
         </select>
       </div>
     <div class="form-group col-md-12"><br/>
-        <button class="btn btn-success pull-right" [disabled]="!disableFlag" (click)="createdriver(driver)">{{btnMsg}}</button>
+        <button class="btn btn-primary pull-right" [disabled]="!disableFlag" (click)="createdriver(driver)">{{btnMsg}}</button>
     </div>       
   </form>  
 </div>
+    </div>
+  </div>
+  </div>
+  </div>
+  </div>
+</div>
+
 <div class="col-md-2"></div>
 <div style="height: 150px;"></div>
 
