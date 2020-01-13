@@ -1,0 +1,101 @@
+package com.org.transport.pkg.service.Impl;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+import javax.annotation.PostConstruct;
+import javax.websocket.server.PathParam;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.org.transport.pkg.model.DriverDTO;
+import com.org.transport.pkg.model.VehicleDTO;
+import com.org.transport.pkg.repository.DriverRepository;
+import com.org.transport.pkg.repository.VehicleRepository;
+import com.org.transport.pkg.service.VehicleService;
+
+@Service
+public class VehicleServiceImpl implements VehicleService  {
+	
+	@Autowired
+	VehicleRepository repository;
+	
+	@Autowired
+	DriverRepository driverRepository;
+	
+	List<VehicleDTO> list=new ArrayList<VehicleDTO>();	
+	@PostConstruct
+	public void save() {
+		LocalDate date=LocalDate.now();
+		VehicleDTO vehicle=new VehicleDTO(date,"AP 02 TA 5678","Tumkur","Tata", "1433",1L);
+		VehicleDTO vehicle1=new VehicleDTO(date,"AP 02 TA 5678","Tumkur","Tata", "1433",2l);
+		VehicleDTO vehicle2=new VehicleDTO( date,"AP 02 TA 5678","Tumkur","Tata", "1633",3l);
+		VehicleDTO vehicle3=new VehicleDTO(date,"AP 02 TA 5678","Tumkur","Tata", "1433",4l);
+		VehicleDTO vehicle4=new VehicleDTO(date,"AP 02 TA 5678","Tumkur","Tata", "1533",5l);
+		VehicleDTO vehicle5=new VehicleDTO(date,"AP 02 TA 5678","Tumkur","Tata", "1433",6l);
+		VehicleDTO vehicle6=new VehicleDTO(date,"AP 02 TA 5678","Tumkur","Tata", "1433",7l);
+		
+		list.add(vehicle5);
+		list.add(vehicle6);
+		list.add(vehicle4);
+		list.add(vehicle3);
+		list.add(vehicle2);
+		list.add(vehicle1);
+		list.add(vehicle);
+		repository.saveAll(list);	
+			
+	}
+	List<DriverDTO> driverList=new ArrayList<DriverDTO>();
+	@PostConstruct
+	public void saveDriver() {
+		LocalDate date1=LocalDate.now();
+		LocalDate date2=LocalDate.now();
+		DriverDTO driver=new DriverDTO("WhiteField","Alex","AX67907878B",897654322,"KA01GE2688",date1,date2);
+		DriverDTO driver1=new DriverDTO("JSW","Alex","AX67907878B",897654322,"KA01GE2688",date1,date2);
+		DriverDTO driver2=new DriverDTO("Mysure","Alex","AX67907878B",897654322,"KA01GE2688",date1,date2);
+		DriverDTO driver3=new DriverDTO("Hosur","Alex","AX67907878B",897654322,"KA01GE2688",date1,date2);
+		DriverDTO driver4=new DriverDTO("WhiteField","Alex","AX67907878B",897654322,"KA01GE2688",date1,date2);
+		DriverDTO driver5=new DriverDTO("Hosure","Alex","AX67907878B",897654322,"KA01GE2688",date1,date2);
+		DriverDTO driver6=new DriverDTO("JSW","Alex","AX67907878B",897654322,"KA01GE2688",date1,date2);
+		
+		
+		driverList.add(driver6);
+		driverList.add(driver5);
+		driverList.add(driver4);
+		driverList.add(driver3);
+		driverList.add(driver2);
+		driverList.add(driver1);
+		driverList.add(driver);
+		driverRepository.saveAll(driverList);
+	}
+	public List<VehicleDTO> getAllVehicles(){
+		return repository.findAll();		
+	}
+	public List<DriverDTO> ListgetAllDrivers()
+	{
+		return driverRepository.findAll();
+	}
+	
+	public DriverDTO createDriver(DriverDTO dto) {
+		return driverRepository.save(dto);		
+	}
+	
+	public void deleteDriver(Long modelNo) {
+		driverRepository.deleteById(modelNo);
+	}
+	
+	public VehicleDTO createVehicle(VehicleDTO vehicleDto) {		
+		return repository.save(vehicleDto);
+	}
+		
+	public void deleteVehicle(Long id) {	
+		repository.deleteById(id);
+	}	
+	
+	public VehicleDTO upadteVehicle(VehicleDTO vehicleDto) {		
+		return repository.save(vehicleDto);
+	}
+}

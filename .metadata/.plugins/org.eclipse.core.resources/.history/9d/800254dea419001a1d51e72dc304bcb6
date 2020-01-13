@@ -1,0 +1,11 @@
+package com.org.transport.pkg.service.Impl;
+
+import org.springframework.stereotype.Service;
+import com.org.transport.pkg.service.FuelService;
+
+@Service
+public class FuelServiceImpl implements FuelService{
+	
+	FuelRepository fuelRepository;
+
+}

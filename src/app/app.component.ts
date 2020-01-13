@@ -11,7 +11,7 @@ export class AppComponent implements OnInit {
   constructor(private authentocationService: AuthenticationService){}
 
   ngOnInit() {
-    this.authentocationService.logOut();
+   // this.authentocationService.logOut();
    }
   
 }

@@ -18,7 +18,7 @@ import { MaterialModule } from './material/material.module';
 import {FlexLayoutModule} from "@angular/flex-layout";
 import {MatButtonModule} from '@angular/material/button';
 import 'hammerjs';
-
+import { MatIconModule } from "@angular/material/icon";
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import { ConsolidatedViewComponent } from './consolidated-view/consolidated-view.component';
 import {MatTableModule} from '@angular/material/table';
@@ -66,7 +66,8 @@ import * as myGlobals from './global'; */
     MatTableModule,
     BrowserAnimationsModule,
     MatButtonModule,
-    ScrollingModule
+    ScrollingModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

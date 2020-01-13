@@ -1,54 +1,92 @@
-<div class="col-md-2"></div>
-<div class="col-md-8">
-  <h2 class="text-center">{{message}}</h2>
-  <form>
-    <div class="form-group" class="col-md-6">
+<div class="col-md-10">
+  <!-- Modal -->
+  <div class="modal-fade">
+  <div class="modal-dialog">
+  <!-- Modal content-->
+  <div class="row">
+  <div class="col-md-12 col-sm-12 col-lg-8 col-md-offset-1">
+    <div class="panel panel-primary body">
+    <div id="p1" class="panel-heading text-center" style="width:780px;">{{message}}</div>
+    <div class="panel-body">
+  <form class="form-validation border" name="form" (ngSubmit)="createdriver(driver) && f.form.valid" #f="ngForm" novalidate >
+    <div class="form-group" >
       <label for="dId">Driver Id:</label>
       <input type="text" [(ngModel)]="driver.dId" (input)="checkFormValidity()" placeholder="Driver Id" name="dId" class="form-control"
-        id="dId" required autofocus>
+        required autofocus #dId="ngModel">
+        <small *ngIf=" dId.touched && dId.pristine && dId.errors?.required" class="text-danger invalid-feedback">
+          Driver id is required.
+        </small>
     </div>
-    <div class="form-group" class="col-md-6">
+    <div class="form-group" >
       <label for="plant">Plant: </label>
-      <input type="text" required autofocus [(ngModel)]="driver.plant" (input)="checkFormValidity()" placeholder="Plant" name="plant" class="form-control" id="plant">
+      <input type="text" required autofocus [(ngModel)]="driver.plant" (input)="checkFormValidity()" placeholder="Plant" name="plant" class="form-control" #plant="ngModel">
+      <small *ngIf=" plant.touched && plant.pristine && plant.errors?.required" class="text-danger invalid-feedback">
+        Plant is required.
+      </small>
     </div>
-    <div class="form-group" class="col-md-6">
+    <div class="form-group" >
       <label for="dName">Driver Name:</label>
       <input required autofocus (input)="checkFormValidity()" [(ngModel)]="driver.dName" placeholder="Driver Name" name="dName" class="form-control"
-        id="dName">
+      #dName="ngModel">
+        <small *ngIf=" dName.touched && dName.pristine && dName.errors?.required" class="text-danger invalid-feedback">
+          Driver name is required.
+        </small>
     </div>
-    <div class="form-group" class="col-md-6">
+    <div class="form-group" >
       <label for="phNo">Contact Number:</label>
-      <input type="text" maxlength="12" (input)="checkFormValidity()" [(ngModel)]="driver.phNo" required autofocus placeholder="Contact Number" name="phNo" class="form-control"
-        id="phNo">
+      <input type="text" maxlength="12" pattern="[0-9]" (input)="checkFormValidity()" [(ngModel)]="driver.phNo" required autofocus placeholder="Contact Number" name="phNo" class="form-control"
+      #phNo="ngModel">
+        <small *ngIf=" phNo.touched && phNo.pristine && phNo.errors?.required" class="text-danger invalid-feedback">
+          Contact name is required.
+        </small>
     </div>
-    <div class="form-group" class="col-md-6">
+    <div class="form-group" >
       <label for="licenceNo">Licence Number:</label>
       <input [(ngModel)]="driver.licenceNo" (input)="checkFormValidity()" required autofocus placeholder="Licence Number" name="licenceNo" class="form-control"
-        id="licenceNo">
+      #licenceNo="ngModel">
+        <small *ngIf=" licenceNo.touched && licenceNo.pristine && licenceNo.errors?.required" class="text-danger invalid-feedback">
+          Licence Number  is required.
+        </small>
     </div>
-    <div class="form-group" class="col-md-6">
+    <div class="form-group" >
       <label for="licenceExp">Licence Expiry Date</label>
       <input type="date" [(ngModel)]="driver.licenceExp" (input)="checkFormValidity()" required autofocus placeholder="Expiry Date" name="licenceExp" class="form-control"
-        id="licenceExp">
+      #licenceExp="ngModel">
+        <small *ngIf=" licenceExp.touched && licenceExp.pristine && licenceExp.errors?.required" class="text-danger invalid-feedback">
+          Licence Expiry Date is required.
+        </small>
     </div> 
-      <div class="form-group" class="col-md-6">
+      <div class="form-group" >
         <label for="createdDate">Created Date:</label>
         <input type="date" required autofocus [(ngModel)]="driver.createdDate" (input)="checkFormValidity()" placeholder="Created Date" name="createdDate" class="form-control"
-          id="createdDate">
+          #createdDate="ngModel">
+          <small *ngIf=" createdDate.touched && createdDate.pristine && createdDate.errors?.required" class="text-danger invalid-feedback">
+            Created Date is required.
+          </small>
       </div>
-      <div class="form-group" class="col-md-6">
+      <div class="form-group" >
         <label class="col-md-12" for="createdDate">Vehicle No:</label><br>
-        <select placeholder="VehicleNo" (change)="checkFormValidity()" class="col-md-12" [ngModelOptions]="{standalone: true}" class="form-group" [(ngModel)]="driver.vehicleId">
+        <select placeholder="VehicleNo" (change)="checkFormValidity()" class="col-md-12" [ngModelOptions]="{standalone: true}" class="form-group" [(ngModel)]="driver.vehicleId" #VehicleNo="ngModel">
            <option placeholder="VehicleNo" class="form-group" *ngFor="let vehicle of vehicles" value="{{vehicle.vehicleId}}">
                     {{vehicle.vehicleNo}}
            </option>        
         </select>
+        <small *ngIf=" VehicleNo.touched && VehicleNo.pristine && VehicleNo.errors?.required" class="text-danger invalid-feedback">
+          Vehicle  Number is required.
+        </small>
       </div>
-    <div class="form-group col-md-12"><br/>
-        <button class="btn btn-success pull-right" [disabled]="!disableFlag" (click)="createdriver(driver)">{{btnMsg}}</button>
+    <div class="form-group">
+        <button class="btn btn-primary pull-right" [disabled]="!disableFlag">{{btnMsg}}</button>
     </div>       
   </form>  
 </div>
+    </div>
+  </div>
+  </div>
+  </div>
+  </div>
+</div>
+
 <div class="col-md-2"></div>
 <div style="height: 150px;"></div>
 

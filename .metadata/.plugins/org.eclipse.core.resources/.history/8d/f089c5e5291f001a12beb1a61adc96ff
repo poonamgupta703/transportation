@@ -1,0 +1,13 @@
+package com.org.transport.pkg.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import com.org.transport.pkg.model.FuelDTO;
+
+public interface FuelRepository extends JpaRepository<FuelDTO,Long> {
+	
+	@Query()
+	public FuelDTO findByVehicleNo(String vehicleNo);
+
+}

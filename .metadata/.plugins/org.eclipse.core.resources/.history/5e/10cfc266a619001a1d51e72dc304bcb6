@@ -1,0 +1,24 @@
+package com.org.transport.pkg.controllers;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.org.transport.pkg.model.FuelDTO;
+import com.org.transport.pkg.service.Impl.FuelServiceImpl;
+
+public class FuelController {
+	
+	@Autowired
+	FuelServiceImpl fuelServiceImpl;
+	
+	public int saveFuel(FuelDTO fuelDto) {
+		int result=0;
+		result=fuelServiceImpl.saveFuel(fuelDto);
+		if(result==0) {
+		throw new RuntimeException();
+		}
+		
+		return result;
+		
+	}
+
+}

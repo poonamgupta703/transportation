@@ -1,0 +1,29 @@
+package com.org.transport.pkg.controllers;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.org.transport.pkg.model.FuelDTO;
+import com.org.transport.pkg.service.Impl.FuelServiceImpl;
+
+@RestController
+@RequestMapping("fuelController")
+public class FuelController {
+	
+	@Autowired
+	FuelServiceImpl fuelServiceImpl;
+	
+	@PostRequest()
+	public int saveFuel(FuelDTO fuelDto)  {
+		int result=0;
+		result=fuelServiceImpl.saveFuel(fuelDto);
+		if(result==0) {
+		throw new RuntimeException();
+		}
+		
+		return result;
+		
+	}
+
+}

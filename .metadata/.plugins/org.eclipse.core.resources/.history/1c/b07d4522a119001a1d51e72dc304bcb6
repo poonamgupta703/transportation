@@ -1,0 +1,5 @@
+package com.org.transport.pkg.repository;
+
+public interface FuelRepository {
+
+}

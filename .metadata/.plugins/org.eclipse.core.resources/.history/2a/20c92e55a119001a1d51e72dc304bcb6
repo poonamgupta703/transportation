@@ -1,0 +1,26 @@
+package com.org.transport.pkg.model;
+
+import java.time.LocalDate;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Fuel")
+public class FuelDTO {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
+	private Long plant;
+	private Long vehicleNo;
+	private String openingKm;
+	private LocalDate closingKm;
+	private String modelNo;
+	private Float fuelLtr;
+	private Double fuelAmmount;
+	private Double efficiency;
+
+}

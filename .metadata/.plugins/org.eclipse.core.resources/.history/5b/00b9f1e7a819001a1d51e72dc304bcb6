@@ -1,0 +1,30 @@
+package com.org.transport.pkg.service.Impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.org.transport.pkg.model.FuelDTO;
+import com.org.transport.pkg.repository.FuelRepository;
+import com.org.transport.pkg.service.FuelService;
+
+@Service
+public class FuelServiceImpl implements FuelService{
+	
+	@Autowired
+	FuelRepository fuelRepository;
+	
+	public void voidSaveFuel() {
+		
+	}
+	
+	public int saveFuel(FuelDTO fuelDto)
+	{
+		FuelDTO fueDtoNew=new FuelDTO();
+		fueDtoNew= fuelRepository.save(fuelDto);
+		int result=0;
+		if(fueDtoNew!=null) {
+			result=1;
+		}
+		return result;
+	}
+}

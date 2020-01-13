@@ -1,0 +1,118 @@
+package com.org.transport.pkg.model;
+import java.time.LocalDate;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Vehicle")
+public class VehicleDTO {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long vehicleId;
+	private LocalDate manfDate;
+	private String vehicleNo;
+	private String vModel;
+	private String vMake;
+	private String assinplant;	
+	private Long driverId;           
+	
+	@OneToOne(fetch = FetchType.LAZY,cascade =  CascadeType.ALL)
+	@JoinColumn(name="driverId",referencedColumnName="driverId")
+	private DriverDTO driver;
+	
+	public String getVehicleNo() {
+		return vehicleNo;
+	}
+
+	public DriverDTO getDriver() {
+		return driver;
+	}
+
+	public void setDriver(DriverDTO driver) {
+		this.driver = driver;
+	}
+
+	public Long getDriverId() {
+		return driverId;
+	}
+
+	public void setDriverId(Long driverId) {
+		this.driverId = driverId;
+	}
+
+	public void setVehicleNo(String vehicleNo) {
+		this.vehicleNo = vehicleNo;
+	}
+
+	public String getvModel() {
+		return vModel;
+	}
+
+	public void setvModel(String vModel) {
+		this.vModel = vModel;
+	}
+
+	public String getvMake() {
+		return vMake;
+	}
+
+	public void setvMake(String vMake) {
+		this.vMake = vMake;
+	}
+
+	public String getAssinplant() {
+		return assinplant;
+	}
+
+	public void setAssinplant(String assinplant) {
+		this.assinplant = assinplant;
+	}
+
+	public VehicleDTO(Long vehicleId, LocalDate manfDate, String vehicleNo, String vModel, String vMake,
+			String assinplant) {
+		super();
+		this.vehicleId = vehicleId;
+		this.manfDate = manfDate;
+		this.vehicleNo = vehicleNo;
+		this.vModel = vModel;
+		this.vMake = vMake;
+		this.assinplant = assinplant;
+	}
+
+		
+
+	public Long getVehicleId() {
+		return vehicleId;
+	}
+
+	public void setVehicleId(Long vehicleId) {
+		this.vehicleId = vehicleId;
+	}
+
+	public VehicleDTO() {
+		super();
+	}
+	
+	public LocalDate getManfDate() {
+		return manfDate;
+	}
+
+	public void setManfDate(LocalDate manfDate) {
+		this.manfDate = manfDate;
+	}
+
+	
+	
+
+	
+
+}

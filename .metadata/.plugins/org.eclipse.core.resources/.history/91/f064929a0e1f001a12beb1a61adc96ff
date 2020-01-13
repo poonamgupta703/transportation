@@ -1,0 +1,111 @@
+package com.org.transport.pkg.model;
+import java.time.LocalDate;
+import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Driver")
+public class DriverDTO {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long driverId;
+	private String plant;
+	private String dName;
+	private String dId;
+	private Integer phNo;
+	private String licenceNo;
+	private LocalDate licenceExp;
+	private LocalDate createdDate;
+	private Long vehicleId;
+	
+	
+	public LocalDate getCreatedDate() {
+		return createdDate;
+	}
+
+	public void setCreatedDate(LocalDate createdDate) {
+		this.createdDate = createdDate;
+	}
+
+	public Long getVehicleId() {
+		return vehicleId;
+	}
+
+	public void setVehicleId(Long vehicleId) {
+		this.vehicleId = vehicleId;
+	}
+
+	public DriverDTO(String plant, String dName, String dId, Integer phNo, String licenceNo, LocalDate licenceExp,
+			LocalDate createdDate) {
+		super();
+		this.plant = plant;
+		this.dName = dName;
+		this.dId = dId;
+		this.phNo = phNo;
+		this.licenceNo = licenceNo;
+		this.licenceExp = licenceExp;
+		this.createdDate = createdDate;
+	}
+
+	/*
+	 * public DriverDTO(String plant, String dName, String dId, Integer phNo, String
+	 * licenceNo,String string, String string2) { super(); this.plant = plant;
+	 * this.dName = dName; this.dId = dId; this.phNo = phNo; this.licenceExp =
+	 * string; this.licenceNo = licenceNo; this.createdDate = string2; }
+	 */
+	public DriverDTO() {
+		super();
+	}
+	
+	
+	public String getPlant() {
+		return plant;
+	}
+	public void setPlant(String plant) {
+		this.plant = plant;
+	}
+	public String getdName() {
+		return dName;
+	}
+	public void setdName(String dName) {
+		this.dName = dName;
+	}
+	public String getdId() {
+		return dId;
+	}
+	public void setdId(String dId) {
+		this.dId = dId;
+	}
+	public Integer getPhNo() {
+		return phNo;
+	}
+	public void setPhNo(Integer phNo) {
+		this.phNo = phNo;
+	}
+	public LocalDate getLicenceExp() {
+		return licenceExp;
+	}
+	public void setLicenceExp(LocalDate licenceExp) {
+		this.licenceExp = licenceExp;
+	}
+	public String getLicenceNo() {
+		return licenceNo;
+	}
+	public void setLicenceNo(String licenceNo) {
+		this.licenceNo = licenceNo;
+	}
+	public LocalDate getDate() {
+		return createdDate;
+	}
+	public void setDate(LocalDate createdDate) {
+		this.createdDate = createdDate;
+	}
+
+
+}

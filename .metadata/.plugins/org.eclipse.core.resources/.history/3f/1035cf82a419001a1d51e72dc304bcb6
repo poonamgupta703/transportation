@@ -1,0 +1,52 @@
+package com.org.transport.pkg.model;
+
+import java.time.LocalDate;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Fuel")
+public class FuelDTO {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
+	private String plant;
+	private String vehicleNo;
+	private Number openingKm;
+	private Number closingKm;
+	private Float fuelLtr;
+	private Number fuelAmmount;
+	private Number efficiency;
+	private String make;
+	private String model;
+	private String driver;
+	private LocalDate date;
+	
+	public FuelDTO() {
+		super();
+		}
+
+	public FuelDTO(Long id, String plant, String vehicleNo, Number openingKm, Number closingKm, Float fuelLtr,
+			Number fuelAmmount, Number efficiency, String make, String model, String driver, LocalDate date) {
+		super();
+		this.id = id;
+		this.plant = plant;
+		this.vehicleNo = vehicleNo;
+		this.openingKm = openingKm;
+		this.closingKm = closingKm;
+		this.fuelLtr = fuelLtr;
+		this.fuelAmmount = fuelAmmount;
+		this.efficiency = efficiency;
+		this.make = make;
+		this.model = model;
+		this.driver = driver;
+		this.date = date;
+	}
+	
+	
+
+}

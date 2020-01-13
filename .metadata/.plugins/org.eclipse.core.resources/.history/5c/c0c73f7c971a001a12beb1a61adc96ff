@@ -1,0 +1,91 @@
+package com.org.transport.pkg.model;
+import java.time.LocalDate;
+import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Driver")
+public class DriverDTO {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long Id;
+	private String plant;
+	private String dName;
+	private String dId;
+	private Integer phNo;
+	private String licenceNo;
+	private Date licenceExp;
+	private LocalDate createdDate;
+	
+	public DriverDTO(String plant, String dName, String dId, Integer phNo, String licenceNo,Date licenceExp,
+			LocalDate date) {
+		super();
+		this.plant = plant;
+		this.dName = dName;
+		this.dId = dId;
+		this.phNo = phNo;
+		this.licenceExp = licenceExp;
+		this.licenceNo = licenceNo;
+		this.createdDate = date;
+	}
+	public DriverDTO() {
+		super();
+	}
+	
+	public Long getId() {
+		return Id;
+	}
+	public void setId(Long id) {
+		Id = id;
+	}
+	public String getPlant() {
+		return plant;
+	}
+	public void setPlant(String plant) {
+		this.plant = plant;
+	}
+	public String getdName() {
+		return dName;
+	}
+	public void setdName(String dName) {
+		this.dName = dName;
+	}
+	public String getdId() {
+		return dId;
+	}
+	public void setdId(String dId) {
+		this.dId = dId;
+	}
+	public Integer getPhNo() {
+		return phNo;
+	}
+	public void setPhNo(Integer phNo) {
+		this.phNo = phNo;
+	}
+	public Date getLicenceExp() {
+		return licenceExp;
+	}
+	public void setLicenceExp(Date licenceExp) {
+		this.licenceExp = licenceExp;
+	}
+	public String getLicenceNo() {
+		return licenceNo;
+	}
+	public void setLicenceNo(String licenceNo) {
+		this.licenceNo = licenceNo;
+	}
+	public LocalDate getDate() {
+		return createdDate;
+	}
+	public void setDate(LocalDate createdDate) {
+		this.createdDate = createdDate;
+	}
+
+
+}

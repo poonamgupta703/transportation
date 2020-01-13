@@ -1,0 +1,121 @@
+package com.org.transport.pkg.model;
+import java.time.LocalDate;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Vehicle")
+public class VehicleDTO {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long vehicleId;
+	private Long sino;
+	private String registrationNo;
+	private LocalDate manfDate;
+	private String modelNo;
+	private Float openingKm;
+	private Float closingKm;
+	private Float fuelLtr;
+	private Double fuelAmmount;
+	private Double efficiency;	
+
+	public Long getVehicleId() {
+		return vehicleId;
+	}
+
+	public void setVehicleId(Long vehicleId) {
+		this.vehicleId = vehicleId;
+	}
+
+	public VehicleDTO() {
+		super();
+	}
+	public Double getEfficiency() {
+		return efficiency;
+	}
+
+	public void setEfficiency(Double efficiency) {
+		this.efficiency = efficiency;
+	}
+	public VehicleDTO(Long sino, String registrationNo, LocalDate manfDate, String modelNo, Float openingKm,
+			Float closingKm, Float fuelLtr, Double fuelAmmount) {
+		super();
+		this.sino = sino;
+		this.registrationNo = registrationNo;
+		this.manfDate = manfDate;
+		this.modelNo = modelNo;
+		this.openingKm = openingKm;
+		this.closingKm = closingKm;
+		this.fuelLtr = fuelLtr;
+		this.fuelAmmount = fuelAmmount;
+	}
+
+	public Long getSino() {
+		return sino;
+	}
+
+	public void setSino(Long sino) {
+		this.sino = sino;
+	}
+
+	public String getRegistrationNo() {
+		return registrationNo;
+	}
+
+	public void setRegistrationNo(String registrationNo) {
+		this.registrationNo = registrationNo;
+	}
+
+	public LocalDate getManfDate() {
+		return manfDate;
+	}
+
+	public void setManfDate(LocalDate manfDate) {
+		this.manfDate = manfDate;
+	}
+
+	public String getModelNo() {
+		return modelNo;
+	}
+
+	public void setModelNo(String modelNo) {
+		this.modelNo = modelNo;
+	}
+
+	public Float getOpeningKm() {
+		return openingKm;
+	}
+
+	public void setOpeningKm(Float openingKm) {
+		this.openingKm = openingKm;
+	}
+
+	public Float getClosingKm() {
+		return closingKm;
+	}
+
+	public void setClosingKm(Float closingKm) {
+		this.closingKm = closingKm;
+	}
+
+	public Float getFuelLtr() {
+		return fuelLtr;
+	}
+
+	public void setFuelLtr(Float fuelLtr) {
+		this.fuelLtr = fuelLtr;
+	}
+
+	public Double getFuelAmmount() {
+		return fuelAmmount;
+	}
+
+	public void setFuelAmmount(Double fuelAmmount) {
+		this.fuelAmmount = fuelAmmount;
+	}
+
+}

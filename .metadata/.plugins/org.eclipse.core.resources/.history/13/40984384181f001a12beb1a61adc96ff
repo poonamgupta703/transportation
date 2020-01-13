@@ -1,0 +1,42 @@
+package com.org.transport.pkg.service.Impl;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+import javax.annotation.PostConstruct;
+import org.springframework.beans.factory.annotation.Autowired;
+import com.org.transport.pkg.model.DriverDTO;
+import com.org.transport.pkg.repository.DriverRepository;
+import com.org.transport.pkg.service.DriverService;
+
+
+public class DriverServiceImpl implements DriverService{
+	
+	@Autowired
+	DriverRepository driverRepo;
+
+	List<DriverDTO> driverList=new ArrayList<DriverDTO>();
+	
+	@PostConstruct
+	public void saveDriver() {
+		LocalDate date=LocalDate.now();
+		DriverDTO driver=new DriverDTO("poonam","gupta","middle",897654322,"poonamgupta@gmail.com",date,date);
+		DriverDTO driver1=new DriverDTO("poonam","gupta","middle",897654322,"poonamgupta@gmail.com",date,date);
+		DriverDTO driver2=new DriverDTO("poonam","gupta","middle",897654322,"poonamgupta@gmail.com",date,date);
+		DriverDTO driver3=new DriverDTO("poonam","gupta","middle",897654322,"poonamgupta@gmail.com",date,date);
+		DriverDTO driver4=new DriverDTO("poonam","gupta","middle",897654322,"poonamgupta@gmail.com",date,date);
+		DriverDTO driver5=new DriverDTO("poonam","gupta","middle",897654322,"poonamgupta@gmail.com",date,date);
+		DriverDTO driver6=new DriverDTO("poonam","gupta","middle",897654322,"poonamgupta@gmail.com",date,date);
+		driverList.add(driver6);
+		driverList.add(driver5);
+		driverList.add(driver4);
+		driverList.add(driver3);
+		driverList.add(driver2);
+		driverList.add(driver1);
+		driverList.add(driver);
+		driverRepo.saveAll(driverList);
+	}
+	public List<DriverDTO> ListgetAllDrivers()
+	{
+		return driverRepo.findAll();
+	}
+}

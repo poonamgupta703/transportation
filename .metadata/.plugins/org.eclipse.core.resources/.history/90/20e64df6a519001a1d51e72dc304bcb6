@@ -1,0 +1,13 @@
+package com.org.transport.pkg.controllers;
+
+import com.org.transport.pkg.model.FuelDTO;
+
+public class FuelController {
+	
+	public int saveFuel(FuelDTO fuelDto) {
+		
+		return 0;
+		
+	}
+
+}

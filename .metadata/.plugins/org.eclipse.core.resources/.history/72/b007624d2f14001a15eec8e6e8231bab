@@ -1,0 +1,62 @@
+package com.org.transport.pkg.controllers;
+import java.util.List;
+import javax.websocket.server.PathParam;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+import com.org.transport.pkg.model.DriverDTO;
+import com.org.transport.pkg.model.VehicleDTO;
+import com.org.transport.pkg.service.Impl.VehicleServiceImpl;
+
+@RestController
+@RequestMapping("VehicleController")
+@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
+public class VehicleController {
+
+	@Autowired
+	VehicleServiceImpl service;
+
+	@RequestMapping(value = "/getVehicles", method = RequestMethod.GET)
+	public List<VehicleDTO> getRecords() {
+		return service.getAllVehicles();
+	}
+	@RequestMapping(value = "/createVehicle", method = RequestMethod.POST)
+	public VehicleDTO createVehicle(@RequestBody VehicleDTO vehicleDto) {		
+		return service.createVehicle(vehicleDto);
+	}
+	
+	@RequestMapping(value = "/deleteVehicle/{id}", method = RequestMethod.DELETE)
+	public void deleteVehicle(@PathVariable(value = "id") Long id) {	
+		service.deleteVehicle(id);
+	}
+	
+	@RequestMapping(value = "/UpdateVehicle", method = RequestMethod.PUT)
+	public VehicleDTO upadteVehicle(@RequestBody VehicleDTO driverDto) {		
+		return service.upadteVehicle(driverDto);
+	}
+
+	@RequestMapping(value = "/getDrivers", method = RequestMethod.GET)
+	public List<DriverDTO> getllDrivers() {
+		return service.ListgetAllDrivers();
+	}	
+
+	@RequestMapping(value = "/createDriver", method = RequestMethod.POST)
+	public DriverDTO createDriver(@RequestBody DriverDTO dto) {		
+		return service.createDriver(dto);
+	}
+	
+	@RequestMapping(value = "/deleteDriver/{id}", method = RequestMethod.DELETE)
+	public void deleteDriver(@PathVariable(value = "id") Long id) {	
+		service.deleteDriver(id);
+	}
+	
+	@RequestMapping(value = "/UpdateDriver", method = RequestMethod.PUT)
+	public DriverDTO upadteDriver(@RequestBody DriverDTO driverDto) {		
+		return service.createDriver(driverDto);
+	}
+	
+}
